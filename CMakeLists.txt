@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.26)
+project(LabProgr)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(LabProgr main.cpp
+        Activity.cpp
+        Activity.h)
