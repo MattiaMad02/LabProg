@@ -5,4 +5,8 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_executable(LabProgr main.cpp
         Activity.h
-        Date.h)
+        Date.h
+        Time.h
+        TodoList.cpp
+        TodoList.h
+)

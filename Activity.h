@@ -7,10 +7,11 @@
 #include<string>
 #include "Date.h"
 #include <fstream>
+#include "Time.h"
 class Activity {
 public:
-    Activity(const std::string& desc="",const Date& data = Date(),bool comp=false)
-            : description(desc),data(data), completed(comp) {}
+    Activity (const std::string& desc = "", const Date& date = Date(),const Time& time=Time(),bool comp=false)
+            : description(desc),data(data),time(time), completed(comp) {}
 
     const std::string &getDescription() const {
         return description;
@@ -22,6 +23,14 @@ public:
 
     bool isCompleted() const {
         return completed;
+    }
+
+    const Time &getTime() const {
+        return time;
+    }
+
+    void setTime(const Time &time) {
+        Activity::time = time;
     }
 
     void setCompleted(bool completed) {
@@ -46,21 +55,25 @@ public:
     void saveToFile(std::ofstream& outFile) const {//salvare attività su disco
         outFile << description << "\n";
         data.saveToFile(outFile);
+        time.saveToFile(outFile);
     }
 
 
     void loadFromFile(std::ifstream& inFile) {//caricare attività su disco
         std::getline(inFile, description);
         data.loadFromFile(inFile);
+        time.loadFromFile(inFile);
     }
 
-    // Funzione per stampare l'attività
-    void print() const {
+
+    void print() const {// stampa attività
         std::cout << description << " - ";
         data.print();
+        time.print();
     }
 private:
     Date data;
+    Time time;
     std::string description;
     bool completed;
 };
