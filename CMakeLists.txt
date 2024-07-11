@@ -9,4 +9,7 @@ add_executable(LabProgr main.cpp
         Time.h
         TodoList.cpp
         TodoList.h
+        Activity.cpp
+        Date.cpp
+        Time.cpp
 )

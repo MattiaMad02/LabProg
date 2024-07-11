@@ -10,67 +10,37 @@
 #include "Time.h"
 class Activity {
 public:
-    Activity (const std::string& desc = "", const Date& date = Date(),const Time& time=Time(),bool comp=false)
-            : description(desc),data(data),time(time), completed(comp) {}
-
-    const std::string &getDescription() const {
-        return description;
-    }
-
-    void setDescription(const std::string &description) {
-        Activity::description = description;
-    }
-
-    bool isCompleted() const {
-        return completed;
-    }
-
-    const Time &getTime() const {
-        return time;
-    }
-
-    void setTime(const Time &time) {
-        Activity::time = time;
-    }
-
-    void setCompleted(bool completed) {
-        Activity::completed = completed;
-    }
-
-    const Date &getData() const {
-        return data;
-    }
-
-    void setData(const Date &data) {
-        Activity::data = data;
-    }
-    void doneActivity(){
-        if(isCompleted()){
-            completed=true;
-            std::cout<<description<<"Fatta"<<std::endl;
-        }
-    }
+    explicit Activity(std::string  desc = "", const Date& date = Date(),const Time& time=Time(),bool comp=false);
 
 
-    void saveToFile(std::ofstream& outFile) const {//salvare attività su disco
-        outFile << description << "\n";
-        data.saveToFile(outFile);
-        time.saveToFile(outFile);
-    }
+    std::string  getDescription() const;
+
+    void setDescription(const std::string &description);
+
+    bool isCompleted() const ;
+
+    Time getTime() const;
+
+    void setTime(const Time &time);
+
+    void setCompleted(bool completed);
+
+     const Date getData() const ;
+
+    void setData(const Date &data) ;
+    void doneActivity();
 
 
-    void loadFromFile(std::ifstream& inFile) {//caricare attività su disco
-        std::getline(inFile, description);
-        data.loadFromFile(inFile);
-        time.loadFromFile(inFile);
-    }
+    void saveToFile(std::ofstream& outFile) const ;//salvare attività su disco
 
 
-    void print() const {// stampa attività
-        std::cout << description << " - ";
-        data.print();
-        time.print();
-    }
+
+    void loadFromFile(std::ifstream& inFile);//caricare attività su disco
+
+
+
+    void print() const ;// stampa attività
+
 private:
     Date data;
     Time time;

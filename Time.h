@@ -10,40 +10,22 @@
 
 class Time {
 public:
-    Time(int h=0, int m=0): ore(h),minuti(m){}
+    Time(int h=0, int m=0);
 
-    int getOra() const {
-        return ore;
-    }
+    int getOra() const;
 
-    void setOra(int ora) {
-        Time::ore = ore;
-    }
+    void setOra(int ora);
 
-    int getMinuti() const {
-        return minuti;
-    }
+    int getMinuti() const;
 
-    void setMinuti(int minuti) {
-        Time::minuti = minuti;
-    }
-    bool isValidTime() const {//validità orario
-        return (ore >= 0 && ore < 24) && (minuti>= 0 && minuti < 60);
-    }
-    void print() const {
-        if (isValidTime()) {
-            std::cout << (ore < 10 ? "0" : "") << ore << ":"
-                      << (minuti < 10 ? "0" : "") << minuti << std::endl;
-        } else {
-            std::cout << "Invalid time" << std::endl;
-        }
-    }
-    void saveToFile(std::ofstream& outFile) const {//salvataggio orario
-        outFile << ore<< " " << minuti << "\n";
-    }
-    void loadFromFile(std::ifstream& inFile) {//caricamento orario
-        inFile >> ore >> minuti;
-    }
+    void setMinuti(int minuti);
+    bool isValidTime() const;//validità orario
+
+    void print() const;
+    void saveToFile(std::ofstream& outFile) const;//salvataggio orario
+
+    void loadFromFile(std::ifstream& inFile);//caricamento orario
+
 
 private:
     int ore;

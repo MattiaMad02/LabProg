@@ -61,6 +61,24 @@ build CMakeFiles/LabProgr.dir/TodoList.cpp.obj: CXX_COMPILER__LabProgr_unscanned
   OBJECT_DIR = CMakeFiles\LabProgr.dir
   OBJECT_FILE_DIR = CMakeFiles\LabProgr.dir
 
+build CMakeFiles/LabProgr.dir/Activity.cpp.obj: CXX_COMPILER__LabProgr_unscanned_Debug C$:/Users/eugen/CLionProjects/LabProgr/Activity.cpp || cmake_object_order_depends_target_LabProgr
+  DEP_FILE = CMakeFiles\LabProgr.dir\Activity.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LabProgr.dir
+  OBJECT_FILE_DIR = CMakeFiles\LabProgr.dir
+
+build CMakeFiles/LabProgr.dir/Date.cpp.obj: CXX_COMPILER__LabProgr_unscanned_Debug C$:/Users/eugen/CLionProjects/LabProgr/Date.cpp || cmake_object_order_depends_target_LabProgr
+  DEP_FILE = CMakeFiles\LabProgr.dir\Date.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LabProgr.dir
+  OBJECT_FILE_DIR = CMakeFiles\LabProgr.dir
+
+build CMakeFiles/LabProgr.dir/Time.cpp.obj: CXX_COMPILER__LabProgr_unscanned_Debug C$:/Users/eugen/CLionProjects/LabProgr/Time.cpp || cmake_object_order_depends_target_LabProgr
+  DEP_FILE = CMakeFiles\LabProgr.dir\Time.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\LabProgr.dir
+  OBJECT_FILE_DIR = CMakeFiles\LabProgr.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target LabProgr
@@ -69,7 +87,7 @@ build CMakeFiles/LabProgr.dir/TodoList.cpp.obj: CXX_COMPILER__LabProgr_unscanned
 #############################################
 # Link the executable LabProgr.exe
 
-build LabProgr.exe: CXX_EXECUTABLE_LINKER__LabProgr_Debug CMakeFiles/LabProgr.dir/main.cpp.obj CMakeFiles/LabProgr.dir/TodoList.cpp.obj
+build LabProgr.exe: CXX_EXECUTABLE_LINKER__LabProgr_Debug CMakeFiles/LabProgr.dir/main.cpp.obj CMakeFiles/LabProgr.dir/TodoList.cpp.obj CMakeFiles/LabProgr.dir/Activity.cpp.obj CMakeFiles/LabProgr.dir/Date.cpp.obj CMakeFiles/LabProgr.dir/Time.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\LabProgr.dir
