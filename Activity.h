@@ -8,6 +8,7 @@
 #include "Date.h"
 #include <fstream>
 #include "Time.h"
+#include <stdexcept>
 class Activity {
 public:
     explicit Activity(std::string  desc = "", const Date& date = Date(),const Time& time=Time(),bool comp=false);
@@ -25,7 +26,7 @@ public:
 
     void setCompleted(bool completed);
 
-     const Date getData() const ;
+    Date getData() const;
 
     void setData(const Date &data) ;
     void doneActivity();
@@ -40,7 +41,10 @@ public:
 
 
     void print() const ;// stampa attività
-
+    class ActivityException : public std::runtime_error {
+    public:
+        explicit ActivityException(const std::string& message) : std::runtime_error(message) {}
+    };
 private:
     Date data;
     Time time;

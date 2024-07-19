@@ -12,13 +12,18 @@ public:
 
     void addActivity(const Activity& activity);
     void removeActivityCompleted();
-    Activity getActivity(const std::string& nameA);
-    int NumberActivitiestoDo();
+    Activity getActivity(const std::string& nameA)const;
+    int NumberActivitiestoDo()const;
     void printList();
     void savetoFile(const std::string& filename)const;
     void loadFromFile(const std::string& filename);
+    Activity getActivityByDate(const Date& date) const;
 private:
     std::list<Activity> activities;
+    class TodoListException : public std::runtime_error {
+    public:
+        explicit TodoListException(const std::string& message) : std::runtime_error(message) {}
+    };
 };
 
 

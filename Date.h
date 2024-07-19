@@ -8,12 +8,13 @@
 #include<string>
 #include <array>
 #include <fstream>
+#include <stdexcept>
 class Date {
 public:
     Date(int d = 1, int m = 1, int y = 2000);
 
 
-    Date& operator=(const Date& other);
+    bool operator==(const Date& other) const;
 
 
     int getDay() const;
@@ -42,7 +43,10 @@ public:
 
 
     void loadFromFile(std::ifstream& inFile);//caricare data su disco
-
+    class DateException : public std::runtime_error {
+    public:
+        explicit DateException(const std::string& message) : std::runtime_error(message) {}
+    };
 
 private:
     int day;

@@ -2,15 +2,14 @@
 // Created by eugen on 11/07/2024.
 //
 #include "Date.h"
-Date::Date(int d, int m, int y) : day(d), month(m), year(y) {}
-
-Date& Date:: operator=(const Date& other) {
-    if (this != &other) {
-        day = other.day;
-        month = other.month;
-        year = other.year;
+Date::Date(int d, int m, int y) : day(d), month(m), year(y) {
+    if (!isValidDate()) {
+        throw DateException("Invalid date provided");
     }
-    return *this;
+}
+
+bool Date:: operator==(const Date& other) const {
+    return (day == other.day && month == other.month && year == other.year);
 }
 
 int Date:: getDay() const {
@@ -18,7 +17,10 @@ int Date:: getDay() const {
 }
 
 void Date:: setDay(int d) {
-    Date::day = d;
+    day = d;
+    if (!isValidDate()) {
+        throw DateException("Invalid day value");
+    }
 }
 
 int Date::getMonth() const {
@@ -27,7 +29,10 @@ int Date::getMonth() const {
 }
 
 void Date::setMonth(int m) {
-    Date::month = m;
+    month = m;
+    if (!isValidDate()) {
+        throw DateException("Invalid month value");
+    }
 }
 
 int Date::getYear() const {
@@ -35,7 +40,10 @@ int Date::getYear() const {
 }
 
 void Date::setYear(int y) {
-    Date::year = y;
+    year = y;
+    if (!isValidDate()) {
+        throw DateException("Invalid year value");
+    }
 }
 
 bool Date::isLeapYear() const {//guardo se anno bisestile
@@ -74,4 +82,7 @@ void Date::saveToFile(std::ofstream& outFile) const {//salvare data su disco
 
 void Date:: loadFromFile(std::ifstream& inFile) {//caricare data su disco
     inFile >> day >> month >> year;
+    if (!isValidDate()) {
+        throw DateException("Invalid date loaded from file");
+    }
 }

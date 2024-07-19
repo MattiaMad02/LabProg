@@ -5,13 +5,20 @@
 
 #include <utility>
 Activity::Activity (std::string  desc , const Date& d,const Time& t,bool comp)
-        : description(std::move(desc)),data(d),time(t), completed(comp) {}
+        : description(std::move(desc)),data(d),time(t), completed(comp) {
+    if (description.empty()) {
+        throw ActivityException("Description cannot be empty");
+    }
+}
 
  std::string  Activity:: getDescription() const {
     return description;
 }
 
 void Activity::setDescription(const std::string &desc) {
+    if (desc.empty()) {
+        throw ActivityException("Description cannot be empty");
+    }
     Activity::description = desc;
 }
 
@@ -31,7 +38,7 @@ void Activity::setCompleted(bool comp) {
     Activity::completed = comp;
 }
 
- const Date Activity:: getData() const {
+Date Activity:: getData() const {
     return data;
 }
 
@@ -39,9 +46,9 @@ void Activity:: setData(const Date &d) {
     Activity::data = d;
 }
 void Activity::doneActivity(){
-    if(isCompleted()){
+    if(!isCompleted()){
         completed=true;
-        std::cout<<description<<"Fatta"<<std::endl;
+        std::cout<<description<<"Completed"<<std::endl;
     }
 }
 
@@ -50,13 +57,19 @@ void Activity::saveToFile(std::ofstream& outFile) const {//salvare attività su 
     outFile << description << "\n";
     data.saveToFile(outFile);
     time.saveToFile(outFile);
+    outFile << completed << "\n";
 }
 
 
 void Activity:: loadFromFile(std::ifstream& inFile) {//caricare attività su disco
     std::getline(inFile, description);
+    if (description.empty()) {
+        throw ActivityException("Description cannot be empty");
+    }
     data.loadFromFile(inFile);
     time.loadFromFile(inFile);
+    inFile >> completed;
+
 }
 
 

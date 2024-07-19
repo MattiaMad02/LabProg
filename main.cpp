@@ -20,4 +20,20 @@ int main() {
     todoList.removeActivityCompleted();
     todoList.printList();
     todoList.NumberActivitiestoDo();
+    Date searchDate(10, 7, 2024);
+    Activity foundActivity=todoList.getActivityByDate(searchDate);
+    foundActivity.print();
+    std::string filename = "todo_list.txt";
+    todoList.savetoFile(filename);
+    std::cout << "Todo list saved to " << filename << std::endl;
+    TodoList loadedTodoList;
+    loadedTodoList.loadFromFile(filename);
+    std::cout << "Todo list loaded from " << filename << std::endl;
+    std::cout << "Loaded Todo List:" << std::endl;
+    loadedTodoList.addActivity(Att);
+    loadedTodoList.addActivity(activity1);
+    loadedTodoList.addActivity(activity2);
+    loadedTodoList.printList();
+
+
 }

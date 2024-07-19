@@ -7,7 +7,7 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-
+#include <stdexcept>
 class Time {
 public:
     Time(int h=0, int m=0);
@@ -25,7 +25,10 @@ public:
     void saveToFile(std::ofstream& outFile) const;//salvataggio orario
 
     void loadFromFile(std::ifstream& inFile);//caricamento orario
-
+    class TimeException : public std::runtime_error {
+    public:
+        explicit TimeException(const std::string& message) : std::runtime_error(message) {}
+    };
 
 private:
     int ore;

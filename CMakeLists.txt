@@ -12,4 +12,7 @@ add_executable(LabProgr main.cpp
         Activity.cpp
         Date.cpp
         Time.cpp
+        LabTest/RunAllTest.cpp
+        LabTest/activityTest.cpp
+        LabTest/todolistTest.cpp
 )

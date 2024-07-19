@@ -3,26 +3,31 @@
 //
 
 #include "TodoList.h"
-
+#include<algorithm>
 void TodoList:: addActivity(const Activity& activity){
     activities.push_back(activity);
 }
 
-Activity TodoList:: getActivity(const std::string& nameA){
-    for(auto itr=activities.begin();itr!=activities.end();){
-        if(itr->getDescription()==nameA){
-            itr->print();
-        }else{
-            itr++;
+Activity TodoList:: getActivity(const std::string& nameA)const{
+    for (const auto& activity : activities) {
+        if (activity.getDescription() == nameA) {
+            return activity;
         }
     }
-    return Activity();
+    throw TodoListException("Activity not found: " + nameA);
+}
+Activity TodoList::getActivityByDate(const Date& date) const{
+    for (const auto& activity : activities){
+        if(activity.getData().getDay()==date.getDay()&&activity.getData().getMonth()==date.getMonth()&&activity.getData().getYear()==date.getYear()){
+            return activity;
+        }
+    }
+    throw TodoListException("Activity not found for the given date.");
 }
 
 void TodoList::printList() {
-    for(auto itr=activities.begin();itr!=activities.end();){
-        itr->print();
-        itr++;
+    for (const auto& activity : activities) {
+        activity.print();
     }
 }
 void TodoList:: removeActivityCompleted(){
@@ -36,14 +41,14 @@ void TodoList:: removeActivityCompleted(){
         }
     }
 }
-int TodoList:: NumberActivitiestoDo(){
-    size_t count = 0;
+int TodoList:: NumberActivitiestoDo()const{
+    int count = 0;
     for (const auto& activity : activities) {
         if (!activity.isCompleted()) {
             ++count;
         }
     }
-    std::cout<<count<<std::endl;
+    std::cout << "Number of activities to do: " << count << std::endl;
     return count;
 }
 
@@ -55,7 +60,7 @@ void TodoList:: savetoFile(const std::string& filename)const{
         }
         outFile.close();
     } else {
-        std::cerr << "Unable to open file for writing: " << filename << std::endl;
+        throw TodoListException("Unable to open file for writing: " + filename);
     }
 }
 void TodoList:: loadFromFile(const std::string& filename){
@@ -67,11 +72,11 @@ void TodoList:: loadFromFile(const std::string& filename){
         bool completed;
         while (std::getline(inFile, description) &&
                (inFile >> day >> month >> year >> hour >> minute >> completed)) {
-            inFile.ignore(); // Ignore the newline character after the boolean
+            inFile.ignore();
             activities.emplace_back(description, Date(day, month, year), Time(hour, minute), completed);
         }
         inFile.close();
     } else {
-        std::cerr << "Unable to open file for reading: " << filename << std::endl;
+        throw TodoListException("Unable to open file for reading: " + filename);
     }
 }
