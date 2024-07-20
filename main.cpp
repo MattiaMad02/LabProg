@@ -34,6 +34,7 @@ int main() {
     loadedTodoList.addActivity(activity1);
     loadedTodoList.addActivity(activity2);
     loadedTodoList.printList();
+    return 0;
 
 
 }

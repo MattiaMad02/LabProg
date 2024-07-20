@@ -3,16 +3,23 @@ project(LabProgr)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(LabProgr main.cpp
+
+set(SOURCE_FILES
+        Activity.cpp
         Activity.h
+        Date.cpp
         Date.h
+        Time.cpp
         Time.h
         TodoList.cpp
         TodoList.h
-        Activity.cpp
-        Date.cpp
-        Time.cpp
-        LabTest/RunAllTest.cpp
-        LabTest/activityTest.cpp
-        LabTest/todolistTest.cpp
 )
+
+
+add_executable(${CMAKE_PROJECT_NAME} main.cpp
+
+)
+
+
+
+
