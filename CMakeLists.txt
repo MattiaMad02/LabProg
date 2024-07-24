@@ -1,7 +1,9 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.5)
 project(LabProgr)
 
 set(CMAKE_CXX_STANDARD 11)
+add_subdirectory(test)
+
 
 
 set(SOURCE_FILES
@@ -18,7 +20,11 @@ set(SOURCE_FILES
 
 add_executable(${CMAKE_PROJECT_NAME} main.cpp
 
+
 )
+
+add_library(${CMAKE_PROJECT_NAME}_lib ${SOURCE_FILES})
+target_link_libraries(${CMAKE_PROJECT_NAME} ${CMAKE_PROJECT_NAME}_lib})
 
 
 
