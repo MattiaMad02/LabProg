@@ -75,6 +75,7 @@ void TodoList:: loadFromFile(const std::string& filename){
             inFile.ignore();
             activities.emplace_back(description, Date(day, month, year), Time(hour, minute), completed);
         }
+
         inFile.close();
     } else {
         throw TodoListException("Unable to open file for reading: " + filename);
