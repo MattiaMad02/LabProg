@@ -1,17 +1,15 @@
 # ninja log v6
-190	1760	7435379765205172	CMakeFiles/LabProgr_lib.dir/TodoList.cpp.obj	df70338ea555e19a
-137	1592	7435379764684566	CMakeFiles/LabProgr_lib.dir/Time.cpp.obj	5b5ef65a7f762ec6
-1760	2788	7435379780906810	libLabProgr_lib.a	6c02a447587305e1
+1592	3999	7435379779230615	test/CMakeFiles/runLabProgrTests.dir/todolistTest.cpp.obj	5072e57ae64786c7
 46	1391	7435379763771001	CMakeFiles/LabProgr_lib.dir/Activity.cpp.obj	80ce9f759485cb04
 236	2977	7435379765668010	test/lib/googletest-1.14.0/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	d093d4dc3199ad4d
-1592	3999	7435379779230615	test/CMakeFiles/runLabProgrTests.dir/todolistTest.cpp.obj	5072e57ae64786c7
+137	1592	7435379764684566	CMakeFiles/LabProgr_lib.dir/Time.cpp.obj	5b5ef65a7f762ec6
+1760	2788	7435379780906810	libLabProgr_lib.a	6c02a447587305e1
+190	1760	7435379765205172	CMakeFiles/LabProgr_lib.dir/TodoList.cpp.obj	df70338ea555e19a
 93	1477	7435379764241354	CMakeFiles/LabProgr_lib.dir/Date.cpp.obj	c90f9cc176cac69a
-40	1820	7435385882570808	test/CMakeFiles/runLabProgrTests.dir/activityTest.cpp.obj	952387b8530422c3
-10	1889	7435385882284994	test/CMakeFiles/runLabProgrTests.dir/runAllTests.cpp.obj	f4684f9a77c9024f
+46	1411	7435391339428351	test/CMakeFiles/runLabProgrTests.dir/activityTest.cpp.obj	952387b8530422c3
+9	1265	7435392329008669	test/CMakeFiles/runLabProgrTests.dir/runAllTests.cpp.obj	f4684f9a77c9024f
 4	8720	7435379763346576	test/lib/googletest-1.14.0/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	421ccb979329d4bf
 8722	11833	7435379850520499	lib/libgtest.a	2a94ace35cdf258e
 11833	11977	7435379881639729	lib/libgtest_main.a	ae0f69f7576b4d4
-46	1411	7435391339428351	test/CMakeFiles/runLabProgrTests.dir/activityTest.cpp.obj	952387b8530422c3
-9	1417	7435391339049613	test/CMakeFiles/runLabProgrTests.dir/runAllTests.cpp.obj	f4684f9a77c9024f
-9	1265	7435392329008669	test/CMakeFiles/runLabProgrTests.dir/runAllTests.cpp.obj	f4684f9a77c9024f
 1265	5173	7435392341569772	test/runLabProgrTests.exe	30213701bd31bc6a
+14	3397	7435422318269422	build.ninja	9eb20893bb71e288

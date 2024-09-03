@@ -54,6 +54,9 @@ void Activity::doneActivity(){
 
 
 void Activity::saveToFile(std::ofstream& outFile) const {//salvare attività su disco
+    if (!outFile) {
+        throw ActivityException("Failed to open output file");
+    }
     outFile << description << "\n";
     data.saveToFile(outFile);
     time.saveToFile(outFile);
@@ -62,6 +65,9 @@ void Activity::saveToFile(std::ofstream& outFile) const {//salvare attività su 
 
 
 void Activity:: loadFromFile(std::ifstream& inFile) {//caricare attività su disco
+    if (!inFile) {
+        throw ActivityException("Failed to open input file");
+    }
     std::getline(inFile, description);
     if (description.empty()) {
         throw ActivityException("Description cannot be empty");
@@ -69,7 +75,9 @@ void Activity:: loadFromFile(std::ifstream& inFile) {//caricare attività su dis
     data.loadFromFile(inFile);
     time.loadFromFile(inFile);
     inFile >> completed;
-
+    if (inFile.fail()) {
+        throw ActivityException("Failed to read completion status");
+    }
 }
 
 
