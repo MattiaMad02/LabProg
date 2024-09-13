@@ -37,4 +37,6 @@ void Time:: print() const {
         std::cout << "Invalid time" << std::endl;
     }
 }
-
+bool Time::operator==(const Time& other) const {
+    return (ore == other.ore && minuti == other.minuti);
+}

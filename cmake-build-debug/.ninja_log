@@ -31,3 +31,12 @@
 21	1390	7479413620204789	test/CMakeFiles/runLabProgrTests.dir/timeTest.cpp.obj	44d70ca9074e615f
 12	1444	7479413620110559	test/CMakeFiles/runLabProgrTests.dir/dateTest.cpp.obj	6b3f21fa9ccb2d85
 1444	5344	7479413634427918	test/runLabProgrTests.exe	89ec9e4907b0cd8a
+12	699	7479433543526654	CMakeFiles/LabProgr_lib.dir/Activity.cpp.obj	80ce9f759485cb04
+21	713	7479433543613313	CMakeFiles/LabProgr_lib.dir/Time.cpp.obj	5b5ef65a7f762ec6
+31	869	7479433543719895	CMakeFiles/LabProgr_lib.dir/TodoList.cpp.obj	df70338ea555e19a
+869	998	7479433552104523	libLabProgr_lib.a	6c02a447587305e1
+45	1799	7479433543857712	test/CMakeFiles/runLabProgrTests.dir/activityTest.cpp.obj	952387b8530422c3
+55	1870	7479433543963319	test/CMakeFiles/runLabProgrTests.dir/todolistTest.cpp.obj	5072e57ae64786c7
+74	1993	7479433544151923	test/CMakeFiles/runLabProgrTests.dir/dateTest.cpp.obj	6b3f21fa9ccb2d85
+700	2357	7479433550408956	test/CMakeFiles/runLabProgrTests.dir/timeTest.cpp.obj	44d70ca9074e615f
+2357	6288	7479433566984133	test/runLabProgrTests.exe	89ec9e4907b0cd8a

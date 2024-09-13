@@ -41,3 +41,24 @@ TEST(TimeTest, PrintMethod) {
     EXPECT_EQ(output, "10:30\n");
 }
 
+TEST(TimeTest, TimesAreEqual) {
+    Time time1(14, 30);
+    Time time2(14, 30);
+    EXPECT_TRUE(time1 == time2);
+}
+TEST(TimeTest, TimesHaveDifferentHours) {
+    Time time1(14, 30);
+    Time time2(15, 30);
+    EXPECT_FALSE(time1 == time2);
+}
+TEST(TimeTest, TimesHaveDifferentMinutes) {
+    Time time1(14, 30);
+    Time time2(14, 45);
+    EXPECT_FALSE(time1 == time2);
+}
+TEST(TimeTest, TimesAreCompletelyDifferent) {
+    Time time1(10, 15);
+    Time time2(16, 45);
+    EXPECT_FALSE(time1 == time2);
+}
+

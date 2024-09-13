@@ -13,6 +13,7 @@ public:
    explicit Time(int h=0, int m=0);
    int getOra() const;
    void setOra(int ora);
+   bool operator==(const Time& other)const;
    int getMinuti() const;
    void setMinuti(int minuti);
    void print() const;
