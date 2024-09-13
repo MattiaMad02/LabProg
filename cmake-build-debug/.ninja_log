@@ -28,3 +28,6 @@
 1343	5201	7479396615686060	test/runLabProgrTests.exe	89ec9e4907b0cd8a
 12	1250	7479402311855052	test/CMakeFiles/runLabProgrTests.dir/timeTest.cpp.obj	44d70ca9074e615f
 1251	5125	7479402324236428	test/runLabProgrTests.exe	89ec9e4907b0cd8a
+21	1390	7479413620204789	test/CMakeFiles/runLabProgrTests.dir/timeTest.cpp.obj	44d70ca9074e615f
+12	1444	7479413620110559	test/CMakeFiles/runLabProgrTests.dir/dateTest.cpp.obj	6b3f21fa9ccb2d85
+1444	5344	7479413634427918	test/runLabProgrTests.exe	89ec9e4907b0cd8a
