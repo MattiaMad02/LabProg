@@ -56,15 +56,7 @@ int Date::daysInMonth() const {//numero giusto di giorni nel mese
     }
     return days[month - 1];
 }
-bool Date::isValidDate() const {//validita' della data
-    if (month < 1 || month > 12) {
-        return false;
-    }
-    if (day < 1 || day > daysInMonth()) {
-        return false;
-    }
-    return true;
-}
+
 void Date::print() const {
     if (isValidDate()) {
         std::cout << (day < 10 ? "0" : "") << day << "/"
@@ -75,14 +67,3 @@ void Date::print() const {
     }
 }
 
-void Date::saveToFile(std::ofstream& outFile) const {//salvare data su disco
-    outFile << day << " " << month << " " << year << "\n";
-}
-
-
-void Date:: loadFromFile(std::ifstream& inFile) {//caricare data su disco
-    inFile >> day >> month >> year;
-    if (!isValidDate()) {
-        throw DateException("Invalid date loaded from file");
-    }
-}

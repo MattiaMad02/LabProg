@@ -222,6 +222,13 @@ build test/CMakeFiles/runLabProgrTests.dir/todolistTest.cpp.obj: CXX_COMPILER__r
   OBJECT_DIR = test\CMakeFiles\runLabProgrTests.dir
   OBJECT_FILE_DIR = test\CMakeFiles\runLabProgrTests.dir
 
+build test/CMakeFiles/runLabProgrTests.dir/dateTest.cpp.obj: CXX_COMPILER__runLabProgrTests_unscanned_Debug C$:/Users/eugen/OneDrive/Desktop/LabProgr/test/dateTest.cpp || cmake_object_order_depends_target_runLabProgrTests
+  DEP_FILE = test\CMakeFiles\runLabProgrTests.dir\dateTest.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/eugen/OneDrive/Desktop/LabProgr/test/lib/googletest-1.14.0/googletest/include -isystem C:/Users/eugen/OneDrive/Desktop/LabProgr/test/lib/googletest-1.14.0/googletest
+  OBJECT_DIR = test\CMakeFiles\runLabProgrTests.dir
+  OBJECT_FILE_DIR = test\CMakeFiles\runLabProgrTests.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target runLabProgrTests
@@ -230,7 +237,7 @@ build test/CMakeFiles/runLabProgrTests.dir/todolistTest.cpp.obj: CXX_COMPILER__r
 #############################################
 # Link the executable test\runLabProgrTests.exe
 
-build test/runLabProgrTests.exe: CXX_EXECUTABLE_LINKER__runLabProgrTests_Debug test/CMakeFiles/runLabProgrTests.dir/runAllTests.cpp.obj test/CMakeFiles/runLabProgrTests.dir/activityTest.cpp.obj test/CMakeFiles/runLabProgrTests.dir/todolistTest.cpp.obj | lib/libgtest.a lib/libgtest_main.a libLabProgr_lib.a lib/libgtest.a || libLabProgr_lib.a lib/libgtest.a lib/libgtest_main.a
+build test/runLabProgrTests.exe: CXX_EXECUTABLE_LINKER__runLabProgrTests_Debug test/CMakeFiles/runLabProgrTests.dir/runAllTests.cpp.obj test/CMakeFiles/runLabProgrTests.dir/activityTest.cpp.obj test/CMakeFiles/runLabProgrTests.dir/todolistTest.cpp.obj test/CMakeFiles/runLabProgrTests.dir/dateTest.cpp.obj | lib/libgtest.a lib/libgtest_main.a libLabProgr_lib.a lib/libgtest.a || libLabProgr_lib.a lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgtest.a  lib/libgtest_main.a  libLabProgr_lib.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = test\CMakeFiles\runLabProgrTests.dir

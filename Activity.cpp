@@ -58,7 +58,7 @@ void Activity::saveToFile(std::ofstream& outFile) const {//salvare attività su 
         throw ActivityException("Failed to open output file");
     }
     outFile << description << "\n";
-    data.saveToFile(outFile);
+    outFile << data.getDay() << " " << data.getMonth() << " " << data.getYear() << "\n";
     time.saveToFile(outFile);
     outFile << completed << "\n";
 }
@@ -72,7 +72,9 @@ void Activity:: loadFromFile(std::ifstream& inFile) {//caricare attività su dis
     if (description.empty()) {
         throw ActivityException("Description cannot be empty");
     }
-    data.loadFromFile(inFile);
+    int day, month, year;
+    inFile >> day >> month >> year;
+    data = Date(day, month, year);
     time.loadFromFile(inFile);
     inFile >> completed;
     if (inFile.fail()) {
