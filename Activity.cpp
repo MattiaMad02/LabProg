@@ -59,7 +59,7 @@ void Activity::saveToFile(std::ofstream& outFile) const {//salvare attività su 
     }
     outFile << description << "\n";
     outFile << data.getDay() << " " << data.getMonth() << " " << data.getYear() << "\n";
-    time.saveToFile(outFile);
+    outFile << time.getOra() << " " << time.getMinuti() << "\n";
     outFile << completed << "\n";
 }
 
@@ -75,7 +75,9 @@ void Activity:: loadFromFile(std::ifstream& inFile) {//caricare attività su dis
     int day, month, year;
     inFile >> day >> month >> year;
     data = Date(day, month, year);
-    time.loadFromFile(inFile);
+    int hour, minute;
+    inFile >> hour >> minute;
+    time = Time(hour, minute);
     inFile >> completed;
     if (inFile.fail()) {
         throw ActivityException("Failed to read completion status");

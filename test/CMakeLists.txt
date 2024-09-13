@@ -11,6 +11,7 @@ set(TEST-SOURCE_FILES
         runAllTests.cpp
         activityTest.cpp
         todolistTest.cpp
-        dateTest.cpp)
+        dateTest.cpp
+        timeTest.cpp)
 add_executable(runLabProgrTests ${TEST-SOURCE_FILES})
 target_link_libraries(runLabProgrTests gtest gtest_main ${CMAKE_PROJECT_NAME}_lib)

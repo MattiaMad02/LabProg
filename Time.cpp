@@ -29,9 +29,6 @@ void Time:: setMinuti(int m) {
         throw TimeException("Invalid minute value");
     }
 }
-bool Time:: isValidTime() const {//validità orario
-    return (ore >= 0 && ore < 24) && (minuti>= 0 && minuti < 60);
-}
 void Time:: print() const {
     if (isValidTime()) {
         std::cout << (ore < 10 ? "0" : "") << ore << ":"
@@ -40,12 +37,4 @@ void Time:: print() const {
         std::cout << "Invalid time" << std::endl;
     }
 }
-void Time::saveToFile(std::ofstream& outFile) const {//salvataggio orario
-    outFile << ore<< " " << minuti << "\n";
-}
-void Time:: loadFromFile(std::ifstream& inFile) {//caricamento orario
-    inFile >> ore >> minuti;
-    if (!isValidTime()) {
-        throw TimeException("Invalid time loaded from file");
-    }
-}
+
