@@ -11,7 +11,7 @@
 #include <stdexcept>
 class Date {
 public:
-    Date(int d = 1, int m = 1, int y = 2000);
+    explicit Date(int d = 1, int m = 1, int y = 2000);
     bool operator==(const Date& other) const;
     int getDay() const;
     void setDay(int day);
