@@ -33,5 +33,11 @@ TEST(TimeTest, SetMethodsInvalid) {
     EXPECT_THROW(t.setOra(25),Time::TimeException);
     EXPECT_THROW(t.setMinuti(61),Time::TimeException);
 }
-
+TEST(TimeTest, PrintMethod) {
+    Time t(10, 30);
+    testing::internal::CaptureStdout();
+    t.print();
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "10:30\n");
+}
 
