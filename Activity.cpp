@@ -4,8 +4,8 @@
 #include"Activity.h"
 
 #include <utility>
-Activity::Activity (std::string  desc , const Date& d,const Time& t,bool comp)
-        : description(std::move(desc)),data(d),time(t), completed(comp) {
+Activity::Activity (const std::string  &desc , const Date& d,const Time& t,bool comp)
+        : description(desc),data(d),time(t), completed(comp) {
     if (description.empty()) {
         throw ActivityException("Description cannot be empty");
     }
@@ -89,4 +89,10 @@ void Activity:: print() const {// stampa attività
     std::cout << description << " - ";
     data.print();
     time.print();
+}
+bool Activity::operator==(const Activity &other) const {
+    return description == other.description &&
+           data == other.data &&
+           time == other.time &&
+           completed == other.completed;
 }

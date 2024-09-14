@@ -3,11 +3,30 @@
 //
 
 #include "TodoList.h"
-#include<algorithm>
+TodoList::TodoList(const std::string &name) : name(name) {
+}
+
+const std::string &TodoList::getName() const {
+    return name;
+}
+
+void TodoList::setName(const std::string &name) {
+    TodoList::name = name;
+}
+
 void TodoList:: addActivity(const Activity& activity){
     activities.push_back(activity);
 }
-
+void TodoList::removeActivity(const Activity& activity){
+    for (auto itr = activities.begin(); itr != activities.end(); ++itr) {
+        if (*itr == activity) {
+            activities.erase(itr);
+            std::cout << "Activity removed successfully." << std::endl;
+            return;
+        }
+    }
+    std::cerr << "Activity not found in the list." << std::endl;
+}
 Activity TodoList:: getActivity(const std::string& nameA)const{
     for (const auto& activity : activities) {
         if (activity.getDescription() == nameA) {
@@ -26,21 +45,12 @@ Activity TodoList::getActivityByDate(const Date& date) const{
 }
 
 void TodoList::printList() {
+    std::cout << "Todo List: " << name << std::endl;
     for (const auto& activity : activities) {
         activity.print();
     }
 }
-void TodoList:: removeActivityCompleted(){
-    for(auto itr=activities.begin();itr!=activities.end();){
-        if(itr->isCompleted()){
-            itr=activities.erase(itr);
 
-        }
-        else{
-            itr++;
-        }
-    }
-}
 int TodoList:: NumberActivitiestoDo()const{
     int count = 0;
     for (const auto& activity : activities) {
@@ -51,7 +61,17 @@ int TodoList:: NumberActivitiestoDo()const{
     std::cout << "Number of activities to do: " << count << std::endl;
     return count;
 }
+int TodoList::NumberActivitiesDone() const {
+    int count=0;
+    for (const auto& activity : activities) {
+        if (activity.isCompleted()) {
+            ++count;
+        }
+    }
+    std::cout << "Number of activities completed: " << count << std::endl;
+    return count;
 
+}
 void TodoList:: savetoFile(const std::string& filename)const{
     std::ofstream outFile(filename);
     if (outFile.is_open()) {
@@ -80,4 +100,25 @@ void TodoList:: loadFromFile(const std::string& filename){
     } else {
         throw TodoListException("Unable to open file for reading: " + filename);
     }
+}
+void TodoList::NumberActivities() const {
+    std::cout<<"Number of activities: "<<activities.size()<<std::endl;
+}
+std::list<Activity> TodoList::getCompletedActivities() const {
+    std::list<Activity> completedActivities;
+    for (const auto& activity : activities) {
+        if (activity.isCompleted()) {
+            completedActivities.push_back(activity);
+        }
+    }
+    return completedActivities;
+}
+std::list<Activity>TodoList::getActivitiesToDo() const {
+    std::list<Activity> ActivitiesToDo;
+    for (const auto &activity: activities) {
+        if (!activity.isCompleted()) {
+            ActivitiesToDo.push_back(activity);
+        }
+    }
+    return ActivitiesToDo;
 }
