@@ -47,7 +47,7 @@ cmake_ninja_workdir = C$:/Users/eugen/OneDrive/Desktop/LabProgr/cmake-build-debu
 #############################################
 # Order-only phony target for LabProgr
 
-build cmake_object_order_depends_target_LabProgr: phony || CMakeFiles/LabProgr.dir
+build cmake_object_order_depends_target_LabProgr: phony || cmake_object_order_depends_target_LabProgr_lib
 
 build CMakeFiles/LabProgr.dir/main.cpp.obj: CXX_COMPILER__LabProgr_unscanned_Debug C$:/Users/eugen/OneDrive/Desktop/LabProgr/main.cpp || cmake_object_order_depends_target_LabProgr
   DEP_FILE = CMakeFiles\LabProgr.dir\main.cpp.obj.d
@@ -63,9 +63,9 @@ build CMakeFiles/LabProgr.dir/main.cpp.obj: CXX_COMPILER__LabProgr_unscanned_Deb
 #############################################
 # Link the executable LabProgr.exe
 
-build LabProgr.exe: CXX_EXECUTABLE_LINKER__LabProgr_Debug CMakeFiles/LabProgr.dir/main.cpp.obj
+build LabProgr.exe: CXX_EXECUTABLE_LINKER__LabProgr_Debug CMakeFiles/LabProgr.dir/main.cpp.obj | libLabProgr_lib.a || libLabProgr_lib.a
   FLAGS = -g
-  LINK_LIBRARIES = -lLabProgr_lib}  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libLabProgr_lib.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\LabProgr.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
